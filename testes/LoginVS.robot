@@ -9,3 +9,4 @@ Realizar login no VisuaLStore
     E clique no botao login    
     Então entrar na tela principal
     Sleep    10s
+
