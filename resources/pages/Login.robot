@@ -4,14 +4,15 @@ Resource    ../main.robot
 *** Variables ***
     
 *** Keywords ***
-Dado que eu acesse o VisuaLStore
+Acesse o VisuaLStore
     Open Browser    url=http://172.16.115.198:8091/vm_visualstore_adm/    browser=Chrome
-E Preencha o usuario e senha
-    Input Text    id:usuarios    visualmix
+Preencha o usuario e senha
+    Input Text    id:usuarios    gustavo
     Input Text    id:senha       4166
-E clique no botao login
+Clique no botao login
     Click Element    btnEnviar
-Então entrar na tela principal
+Entrar na tela principal
+    Sleep    2s
     Element Should Be Visible    class:menu
 
 

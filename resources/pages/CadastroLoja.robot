@@ -2,7 +2,7 @@
 Resource    ../main.robot
 
 *** Variables ***
-${CodLoja}        2
+${CodLoja}        555
 ${NumPhone}       11988698869
 ${RSocial}        G MIRA LTDA
 ${DescLoja}       G MIRA LTDA - LJ 02
@@ -30,16 +30,30 @@ ${NumFuncionario}        100
 ${Gerente}        VisualMix
 
 *** Keywords ***
-E acessar o cadastro de loja
+Verificar se a loja existe
+    Select Frame    xpath=//iframe[@id='desktop']
+    Input Text    name:txtValor        ${CodLoja}
+    Click Element    name:cmdVer
+    Sleep    2s
+    ${rc}    ${msg}=    Run Keyword And Ignore Error    Element Should Be Visible    xpath=//a[contains(@class, 'ListaLinha1') and contains(text(),'${CodLoja}')]
+    Run Keyword If    '${rc}' == 'PASS'    Excluir loja para cadastro
+
+Excluir loja para cadastro
+    Click Element    xpath=//a[contains(@class, 'ListaLinha1') and contains(text(), '${RSocial}')]
+    Sleep    2s
+    Click Element    name:btnExcluir
+    Handle Alert    action=ACCEPT
+
+Acessar o cadastro de loja
+    Set Selenium Speed    0.2s
     Click Element    id:e0_5i
     Click Element    id:e0_18o
     Click Element    id:e0_19o
-E clicar no botao Incluir
-    Select Frame    xpath=//iframe[@id='desktop']
+Clicar no botao Incluir
     Click Element    xpath=//a[contains(text(), 'Incluir')]
 
-E inserir os dados da loja
-    Set Selenium Speed    0.2s
+Inserir os dados da loja
+    Set Selenium Speed    0.5s
     Input Text    name:txtCodigo      ${CodLoja}
     Input Text    name:txtTelefone    ${NumPhone}
     Input Text    name:txtRazaoSoc    ${RSocial}
@@ -68,7 +82,7 @@ E inserir os dados da loja
     Input Text    name:txtGerente    ${Gerente}
     Click Element    name:chkAtivo
     Click Element    name:usaNFCE
-Entao clicar em salvar
+Clicar em salvar
     Click Element    btnSalvar
     Handle Alert    action=ACCEPT
 

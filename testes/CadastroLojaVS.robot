@@ -7,14 +7,14 @@ Test Teardown        Fechar o navegador
 
 *** Test Cases ***
 Cadastrar uma nova loja
-    E Preencha o usuario e senha
-    E clique no botao login
-    Sleep    2s    
-    Então entrar na tela principal
-    E acessar o cadastro de loja
+    Preencha o usuario e senha
+    Clique no botao login  
+    Entrar na tela principal
+    Acessar o cadastro de loja
     Sleep    2s
-    E clicar no botao Incluir
-    E inserir os dados da loja
+    Verificar se a loja existe
     Sleep    2s
-    Entao clicar em salvar
-    Sleep    5s
+    Clicar no botao Incluir
+    Sleep    2s
+    Inserir os dados da loja
+    Clicar em salvar
