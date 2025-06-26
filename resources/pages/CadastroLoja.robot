@@ -28,7 +28,7 @@ ${BalancaA}        00-Nenhuma
 ${BalancaB}        00-Nenhuma
 ${NumFuncionario}        100
 ${Gerente}        VisualMix
-
+${BotaoVer}       name:cmdVer
 *** Keywords ***
 Verificar se a loja existe
     Select Frame    xpath=//iframe[@id='desktop']
@@ -85,6 +85,8 @@ Inserir os dados da loja
 Clicar em salvar
     Click Element    btnSalvar
     Handle Alert    action=ACCEPT
+
+    
 
     
 

@@ -2,13 +2,14 @@
 Resource    ../main.robot
 
 *** Variables ***
-    
+${NomeUser}    gustavo
+${SenhaUser}    4166
 *** Keywords ***
 Acesse o VisuaLStore
     Open Browser    url=http://172.16.115.198:8091/vm_visualstore_adm/    browser=Chrome
 Preencha o usuario e senha
-    Input Text    id:usuarios    gustavo
-    Input Text    id:senha       4166
+    Input Text    id:usuarios    ${NomeUser}
+    Input Text    id:senha       ${SenhaUser}
 Clique no botao login
     Click Element    btnEnviar
 Entrar na tela principal
