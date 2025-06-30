@@ -1,9 +1,6 @@
 *** Settings ***
 Resource    ../main.robot
-
-*** Variables ***
-${NomeUser}    gustavo
-${SenhaUser}    4166
+Resource    ../shared/Variables.robot
 *** Keywords ***
 Acesse o VisuaLStore
     Open Browser    url=http://172.16.115.198:8091/vm_visualstore_adm/    browser=Chrome
